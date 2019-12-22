@@ -1,0 +1,200 @@
+{
+  "builders": [
+    {
+      "communicator": "winrm",
+      "disk_size": "{{user `disk_size`}}",
+      "floppy_files": [
+        "{{template_dir}}/floppy/slim_win10.bat",
+        "{{template_dir}}/floppy/00-run-all-scripts.cmd",
+        "{{template_dir}}/floppy/01-install-wget.cmd",
+        "{{template_dir}}/floppy/_download.cmd",
+        "{{template_dir}}/floppy/_packer_config.cmd",
+        "{{template_dir}}/floppy/_post_update_install.bat",
+        "{{template_dir}}/floppy/autologon.bat",
+        "{{template_dir}}/floppy/disablewinupdate.bat",
+        "{{template_dir}}/floppy/eval-win10x64-enterprise/Autounattend.xml",
+        "{{template_dir}}/floppy/fixnetwork.ps1",
+        "{{template_dir}}/floppy/install-winrm.cmd",
+        "{{template_dir}}/floppy/passwordchange.bat",
+        "{{template_dir}}/floppy/powerconfig.bat",
+        "{{template_dir}}/floppy/update.bat",
+        "{{template_dir}}/floppy/zz-start-transports.cmd"
+      ],
+      "guest_os_type": "windows9-64",
+      "headless": "{{ user `headless` }}",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "iso_checksum_type": "sha1",
+      "iso_url": "{{ user `iso_url` }}",
+      "shutdown_command": "{{ user `shutdown_command`}}",
+      "tools_upload_flavor": "windows",
+      "type": "vmware-iso",
+      "vm_name": "eval-win10x64-enterprise-visualstudio2017",
+      "cpus": "{{ user `cpus` }}",
+      "memory": "{{ user `memory` }}",
+      "disk_adapter_type": "lsisas1068",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1"
+      },
+      "winrm_password": "vagrant",
+      "winrm_timeout": "10000s",
+      "winrm_username": "vagrant"
+    },
+    {
+      "communicator": "winrm",
+      "disk_size": "{{user `disk_size`}}",
+      "floppy_files": [
+        "{{template_dir}}/floppy/slim_win10.bat",
+        "{{template_dir}}/floppy/00-run-all-scripts.cmd",
+        "{{template_dir}}/floppy/01-install-wget.cmd",
+        "{{template_dir}}/floppy/_download.cmd",
+        "{{template_dir}}/floppy/_packer_config.cmd",
+        "{{template_dir}}/floppy/_post_update_install.bat",
+        "{{template_dir}}/floppy/autologon.bat",
+        "{{template_dir}}/floppy/disablewinupdate.bat",
+        "{{template_dir}}/floppy/eval-win10x64-enterprise/Autounattend.xml",
+        "{{template_dir}}/floppy/fixnetwork.ps1",
+        "{{template_dir}}/floppy/install-winrm.cmd",
+        "{{template_dir}}/floppy/oracle-cert.cer",
+        "{{template_dir}}/floppy/passwordchange.bat",
+        "{{template_dir}}/floppy/powerconfig.bat",
+        "{{template_dir}}/floppy/update.bat",
+        "{{template_dir}}/floppy/zz-start-transports.cmd"
+      ],
+      "guest_additions_mode": "attach",
+      "guest_additions_url": "{{user `guest_additions_url`}}",
+      "guest_os_type": "Windows10_64",
+      "hard_drive_interface": "sata",
+      "headless": "{{ user `headless` }}",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "iso_checksum_type": "sha1",
+      "iso_url": "{{ user `iso_url` }}",
+      "shutdown_command": "{{ user `shutdown_command`}}",
+      "post_shutdown_delay": "30s",
+      "type": "virtualbox-iso",
+      "cpus": "{{ user `cpus` }}",
+      "memory": "{{ user `memory` }}",
+      "vboxmanage": [
+        [
+          "setextradata",
+          "{{.Name}}",
+          "VBoxInternal/CPUM/IsaExts/CMPXCHG16B",
+          "1"
+        ]
+      ],
+      "vm_name": "eval-win10x64-enterprise-visualstudio2017",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "10000s",
+      "winrm_username": "vagrant"
+    },
+    {
+      "communicator": "winrm",
+      "disk_size": "{{user `disk_size`}}",
+      "floppy_files": [
+        "{{template_dir}}/floppy/slim_win10.bat",
+        "{{template_dir}}/floppy/00-run-all-scripts.cmd",
+        "{{template_dir}}/floppy/01-install-wget.cmd",
+        "{{template_dir}}/floppy/_download.cmd",
+        "{{template_dir}}/floppy/_packer_config.cmd",
+        "{{template_dir}}/floppy/_post_update_install.bat",
+        "{{template_dir}}/floppy/autologon.bat",
+        "{{template_dir}}/floppy/disablewinupdate.bat",
+        "{{template_dir}}/floppy/eval-win10x64-enterprise/Autounattend.xml",
+        "{{template_dir}}/floppy/fixnetwork.ps1",
+        "{{template_dir}}/floppy/install-winrm.cmd",
+        "{{template_dir}}/floppy/passwordchange.bat",
+        "{{template_dir}}/floppy/powerconfig.bat",
+        "{{template_dir}}/floppy/update.bat",
+        "{{template_dir}}/floppy/zz-start-transports.cmd"
+      ],
+      "guest_os_type": "win-8.1",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "iso_checksum_type": "sha1",
+      "iso_url": "{{ user `iso_url` }}",
+      "parallels_tools_flavor": "win",
+      "cpus": "{{ user `cpus` }}",
+      "memory": "{{ user `memory` }}",
+      "shutdown_command": "{{ user `shutdown_command`}}",
+      "type": "parallels-iso",
+      "vm_name": "eval-win10x64-enterprise-visualstudio2017",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "10000s",
+      "winrm_username": "vagrant"
+    },
+    {
+      "communicator": "winrm",
+      "cpus": "{{ user `cpus` }}",
+      "disk_size": "{{user `disk_size`}}",
+      "floppy_files": [
+        "{{template_dir}}/floppy/slim_win10.bat",
+        "{{template_dir}}/floppy/00-run-all-scripts.cmd",
+        "{{template_dir}}/floppy/01-install-wget.cmd",
+        "{{template_dir}}/floppy/_download.cmd",
+        "{{template_dir}}/floppy/_packer_config.cmd",
+        "{{template_dir}}/floppy/_post_update_install.bat",
+        "{{template_dir}}/floppy/autologon.bat",
+        "{{template_dir}}/floppy/disablewinupdate.bat",
+        "{{template_dir}}/floppy/eval-win10x64-enterprise/Autounattend.xml",
+        "{{template_dir}}/floppy/fixnetwork.ps1",
+        "{{template_dir}}/floppy/install-winrm.cmd",
+        "{{template_dir}}/floppy/passwordchange.bat",
+        "{{template_dir}}/floppy/powerconfig.bat",
+        "{{template_dir}}/floppy/update.bat",
+        "{{template_dir}}/floppy/zz-start-transports.cmd"
+      ],
+      "headless": "{{ user `headless` }}",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "iso_checksum_type": "sha1",
+      "iso_url": "{{ user `iso_url` }}",
+      "memory": "{{ user `memory` }}",
+      "shutdown_command": "{{ user `shutdown_command`}}",
+      "type": "hyperv-iso",
+      "vm_name": "eval-win10x64-enterprise-visualstudio2017",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "10000s",
+      "winrm_username": "vagrant"
+    }
+  ],
+  "post-processors": [
+    {
+      "compression_level": 1,
+      "keep_input_artifact": false,
+      "output": "box/{{.Provider}}/eval-win10x64-enterprise-visualstudio2017-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box",
+      "type": "vagrant",
+      "vagrantfile_template": "{{template_dir}}/tpl/vagrantfile-eval-win10x64-enterprise.tpl"
+    }
+  ],
+  "provisioners": [
+    {
+      "environment_vars": [
+        "CM={{user `cm`}}",
+        "CM_VERSION={{user `cm_version`}}",
+        "UPDATE={{user `update`}}"
+      ],
+      "scripts": [
+        "{{template_dir}}/script/vagrant.bat",
+        "{{template_dir}}/script/cmtool.bat",
+        "{{template_dir}}/script/vmtool.bat",
+        "{{template_dir}}/script/visualstudio2017.bat",
+        "{{template_dir}}/script/clean.bat",
+        "{{template_dir}}/script/ultradefrag.bat",
+        "{{template_dir}}/script/uninstall-7zip.bat",
+        "{{template_dir}}/script/sdelete.bat"
+      ],
+      "type": "windows-shell"
+    }
+  ],
+  "variables": {
+    "cpus": "2",
+    "memory": "2048",
+    "guest_additions_url": "",
+    "cm": "nocm",
+    "cm_version": "",
+    "disk_size": "40960",
+    "headless": "false",
+    "iso_checksum": "489ebee676e26cdb81377b0e6385c001a22589b8",
+    "iso_url": "https://software-download.microsoft.com/download/pr/18363.418.191007-0143.19h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
+    "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+    "update": "true",
+    "version": "0.1.0"
+  }
+}
